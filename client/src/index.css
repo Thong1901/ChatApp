@@ -213,6 +213,7 @@ body {
 }
 
 .this-user-notifications {
+    color: white;
     display: flex;
     background: #00bd9b;
     height: 20px;
