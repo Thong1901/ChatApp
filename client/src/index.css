@@ -2,9 +2,34 @@
 
 body {
 
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-family: "Nunito", sans-serif;
-    background: rgb(40, 40, 40);
+    background: rgb(101, 129, 98);
+}
+
+/* @media(prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+        font-family: "Nunito", sans-serif;
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    body {
+        background-color: white;
+        color: black;
+        font-family: "Nunito", sans-serif;
+    }
+} */
+.thongmai {
+    width: 4%;
+}
+
+.text-warning {
+
+    padding-right: 560px;
+    width: 15%;
 }
 
 /* All users */
@@ -17,7 +42,7 @@ body {
 }
 
 .single-user {
-    background: rgb(0, 213, 255);
+    background: rgb(2, 22, 26);
     cursor: pointer;
     padding: 5px 7px;
     border-radius: 10px;
@@ -29,22 +54,24 @@ body {
 .user-card {
 
     position: relative;
-    border-bottom: 1px solid rgb(100, 100, 100);
+    border-bottom: 2px solid rgb(46, 41, 41);
     width: 380px;
 }
 
 .user-card .text-content {
     width: 170px;
+    color: #000000;
 }
 
 .user-card .name {
+
     font-weight: 700;
 }
 
 .user-card .text,
 .user-card .date {
-    font-size: 14px;
-    color: rgb(180, 180, 180);
+    font-size: 16px;
+    color: rgb(214, 214, 214);
 }
 
 .user-online {
@@ -62,9 +89,6 @@ body {
 /* Chat Box */
 .chat-box {
 
-    color: white;
-
-
     max-height: calc(100vh - 10rem);
     overflow-y: auto;
     background: rgb(25, 25, 25);
@@ -78,7 +102,6 @@ body {
 /* Chat Header */
 .chat-header {
     color: white;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,7 +157,6 @@ body {
 /* Notification */
 .notifications {
     color: white;
-
     position: relative;
 }
 
@@ -223,4 +245,69 @@ body {
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+}
+
+.video-call-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    /* Đảm bảo phần tử con được căn chỉnh về phía bên phải */
+    gap: 10px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+
+    /* Điều chỉnh khoảng cách từ trên */
+}
+
+/* Căn chỉnh video call buttons nằm bên phải */
+.video-call-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    position: absolute;
+    right: 250px;
+}
+
+.video-call-btn:hover {
+    background-color: #45a049;
+}
+
+/* Căn chỉnh các nút khác hoặc phần tử con của video call container */
+.end-call-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.end-call-btn:hover {
+    background-color: darkred;
+}
+
+/* Nếu muốn container của video call luôn hiện lên ở bên phải */
+.local-video,
+.remote-video {
+    width: 400px;
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    /* Đảm bảo chúng không bị che khuất */
+}
+
+.video-wrapper {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

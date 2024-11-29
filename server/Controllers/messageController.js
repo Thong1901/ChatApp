@@ -32,8 +32,15 @@ const getMessages = async (req, res) => {
     }
 
 };
-
+const deleteMessages = async (req, res) => {
+    try {
+        const result = await messageModel.deleteMany({}); // Xóa toàn bộ tin nhắn
+        res.status(200).send({ success: true, message: "All messages deleted successfully", count: result.deletedCount });
+    } catch (error) {
+        res.status(500).send({ success: false, message: "Error deleting messages", error: error.message });
+    }
+};
 
 module.exports = {
-    createMessage, getMessages
+    createMessage, getMessages, deleteMessages
 }

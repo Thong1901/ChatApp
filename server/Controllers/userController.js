@@ -17,16 +17,16 @@ const registerUser = async (req, res) => {
         let user = await userModel.findOne({ email });
 
         if (user)
-            return res.status(400).json("user with the given email alredy exist...");
+            return res.status(400).json("người dùng với email đã tồn tại...");
 
         if (!name || !email || !password)
-            return res.status(400).json("All fieled are required...");
+            return res.status(400).json("Tất cả các trường là bắt buộc...");
 
         if (!validator.isEmail(email))
-            return res.status(400).json("Email must be a valid email...");
+            return res.status(400).json("Email phải là email hợp lệ...");
 
         if (!validator.isStrongPassword(password))
-            return res.status(400).json("Password must be a strong password...");
+            return res.status(400).json("Mật khẩu không đủ mạnh.(bao gồm ký tự đặc biết và chử cái hoa)");
 
         user = new userModel({ name, email, password });
 
@@ -52,10 +52,10 @@ const loginUser = async (req, res) => {
     try {
         let user = await userModel.findOne({ email });
 
-        if (!user) return res.status(400).json("Invalid email or password...");
+        if (!user) return res.status(400).json("Email hoặc mật khẩu không hợp lệ...");
 
         const isValiPassword = await bcrypt.compare(password, user.password);
-        if (!isValiPassword) return res.status(400).json("Invalid email or password...");
+        if (!isValiPassword) return res.status(400).json("Email hoặc mật khẩu không hợp lệ...");
 
         const token = createToken(user._id);
 
